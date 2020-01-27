@@ -20,6 +20,7 @@
                                 List Product
                               
                                 <!-- BUAT TOMBOL UNTUK MENGARAHKAN KE HALAMAN ADD PRODUK -->
+                                <a href="{{ route('product.bulk') }}" class="btn btn-danger btn-sm">Mass Upload</a>
                                 <a href="{{ route('product.create') }}" class="btn btn-primary btn-sm float-right">Tambah</a>
                             </h4>
                         </div>

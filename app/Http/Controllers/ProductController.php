@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use File;
 use App\Product;
 use App\Category;
+use App\Jobs\ProductJob;
 
 class ProductController extends Controller
 {
@@ -111,4 +112,31 @@ class ProductController extends Controller
         return redirect(route('product.index'))->with(['success' => 'Delete Product Success !!']);
     }
 
+    public function massUploadForm()
+    {
+        $category = Category::orderBy('name','DESC')->get();
+        return view('products.bulk', compact('category'));
+    }
+
+    public function massUpload(Request $request)
+    {
+        $this->validate($request, [
+            'category_id' => 'required|exists:categories,id',
+            'file' => 'required|mimes:xlsx' //format excel must be xlsx
+        ]);
+
+        if($request->hasFile('file')) {
+            $file = $request->file('file');
+            $filename = time(). '-product.' . $file->getClientOriginalExtension();
+            $file->storeAs('public/uploads', $filename);
+
+            ProductJob::dispatch($request->category_id, $filename);
+            return redirect()->back()->with(['success' => 'Upload Produk Dijadwalkan']);
+        }
+    }
+
+    public function saveBulk()
+    {
+
+    }
 }
