@@ -8,7 +8,7 @@ Use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\WithStartRow;
 use Maatwebsite\Excel\Concerns\WithChunkReading;
 
-class ProductImport implements ToCollection
+class ProductImport implements WithStartRow, WithChunkReading
 {
     /**
     * @param Collection $collection

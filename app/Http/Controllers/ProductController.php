@@ -131,12 +131,7 @@ class ProductController extends Controller
             $file->storeAs('public/uploads', $filename);
 
             ProductJob::dispatch($request->category_id, $filename);
-            return redirect()->back()->with(['success' => 'Upload Produk Dijadwalkan']);
+            return redirect()->back()->with(['success' => 'Upload Product on Schedule!']);
         }
-    }
-
-    public function saveBulk()
-    {
-
     }
 }
