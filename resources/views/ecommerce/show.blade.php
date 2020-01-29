@@ -1,7 +1,7 @@
 @extends('layouts.ecommerce')
 
 @section('title')
-    <title>Jual {{ $products->name }}</title>
+	<title>Sale {{ $products->name}}</title>
 @endsection
 
 @section('content')
@@ -46,21 +46,25 @@
 							</li>
 						</ul>
 						<p></p>
-						<div class="product_count">
-							<label for="qty">Quantity:</label>
-							<input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
-							<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
-							 class="increase items-count" type="button">
-								<i class="lnr lnr-chevron-up"></i>
-							</button>
-							<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
-							 class="reduced items-count" type="button">
-								<i class="lnr lnr-chevron-down"></i>
-							</button>
-						</div>
-						<div class="card_area">
-							<a class="main_btn" href="#">Add to Cart</a>
-						</div>
+						<form action="{{ route('front.cart') }}" method="POST">
+							@csrf
+							<div class="product_count">
+								<label for="qty">Quantity:</label>
+								<input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
+								<input type="hidden" name="product_id" value="{{ $products->id }}" class="form-control">
+								<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
+								class="increase items-count" type="button">
+									<i class="lnr lnr-chevron-up"></i>
+								</button>
+								<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
+								class="reduced items-count" type="button">
+									<i class="lnr lnr-chevron-down"></i>
+								</button>
+							</div>
+							<div class="card_area">
+								<button class="main_btn">Add to Cart</button>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -89,7 +93,7 @@
 							<tbody>
 								<tr>
 									<td>
-										<h5>Berat</h5>
+										<h5>Weight</h5>
 									</td>
 									<td>
                                         <h5>{{ $products->weight }} gr</h5>
@@ -97,7 +101,7 @@
 								</tr>
 								<tr>
 									<td>
-										<h5>Harga</h5>
+										<h5>Price</h5>
 									</td>
 									<td>
 										<h5>Rp {{ number_format($products->price) }}</h5>
@@ -105,7 +109,7 @@
 								</tr>
 								<tr>
 									<td>
-										<h5>Kategori</h5>
+										<h5>Category</h5>
 									</td>
 									<td>
 										<h5>{{ $products->category->name }}</h5>
