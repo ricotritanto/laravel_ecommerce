@@ -66,7 +66,7 @@
                         </div>
                         @empty
                         <div class="col-md-12">
-                            <h3 class="text-center">Tidak ada produk</h3>
+                            <h3 class="text-center">Empty Product</h3>
                         </div>
                         @endforelse
                       <!-- PROSES LOOPING DATA PRODUK, SAMA DENGAN CODE YANG ADDA DIHALAMAN HOME -->
