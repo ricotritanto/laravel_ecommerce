@@ -45,7 +45,9 @@
                                     <span>Kategori</span> : {{ $products->category->name }}</a>
 							</li>
 						</ul>
-						<p></p>
+						<p>
+							
+						</p>
 						<form action="{{ route('front.cart') }}" method="POST">
 							@csrf
 							<div class="product_count">
