@@ -99,6 +99,11 @@ return [
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
         ],
+
+        'from' => [
+            'address' => env('MAIL_FROM_ADDRESS', 'ryco.aveiro@gmail.com'),
+            'name' => env('MAIL_FROM_NAME', 'Laravel Ecommerce'),
+        ],
     ],
 
 ];

@@ -16,12 +16,25 @@ Route::get('/', 'Ecommerce\FrontController@index')->name('front.index');
 Route::get('/product', 'Ecommerce\FrontController@product')->name('front.product');
 Route::get('/category/{slug}', 'Ecommerce\FrontController@categoryproduct')->name('front.category');
 Route::get('/product/{slug}', 'Ecommerce\FrontController@show')->name('front.show_product');
-Route::post('/cart', 'Ecommerce\Cartcontroller@addToCart')->name('front.cart');
+
+Route::post('cart', 'Ecommerce\Cartcontroller@addToCart')->name('front.cart');
 Route::get('/cart', 'Ecommerce\CartController@listCart')->name('front.list_cart');
-Route::get('/cart/update', 'Ecommerce\CartController@UpdateCart')->name('front.update_cart');
+Route::post('/cart/update', 'Ecommerce\CartController@UpdateCart')->name('front.update_cart');
+
 Route::get('/checkout', 'Ecommerce\CartController@checkout')->name('front.checkout');
 Route::post('/checkout', 'Ecommerce\CartController@processCheckout')->name('front.store_checkout');
 Route::get('/checkout/{invoice}', 'Ecommerce\CartController@checkoutFinish')->name('front.finish_checkout');
+
+Route::group(['prefix' => 'member', 'namespace' => 'Ecommerce'], function(){
+    Route::get('login', 'LoginController@loginForm')->name('customer.login');
+    Route::post('login', 'LoginController@login')->name('customer.post_login');
+    Route::get('verify/{token}', 'frontcontroller@verifyCustomerRegistration')->name('customer.verify');
+
+    Route::group(['middleware' => 'customer'], function() {
+    Route::get('dashboard', 'LoginController@dashboard')->name('customer.dashboard');
+    Route::get('logout', 'LoginController@logout')->name('customer.logout');
+    });
+});
 
 
 

@@ -25,7 +25,7 @@
         <section class="cart_area">
             <div class="container">
                 <div class="cart_inner">
-                    <form action="{{('')}}" method="post">
+                    <form action="{{route ('front.update_cart')}}" method="post">
                         @csrf
                         <div class="table-responsive">
                             <table class="table">
