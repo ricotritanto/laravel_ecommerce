@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
+use App\Customer;
 
 class FrontController extends Controller
 {
@@ -33,5 +34,21 @@ class FrontController extends Controller
     {
         $products = Product::with(['category'])->where('slug', $slug)->first();
         return view('ecommerce.show', compact('products'));
+    }
+
+    public function verifyCustomerRegistration($token)
+    {
+        //get customer by token
+        $customer = Customer::where('activate_token', $token)->first();
+        if($customer)
+        {
+            $customer->update([
+                'activate_token' => null,
+                'status' => 1
+            ]);
+            return redirect(route('customer.login'))->with(['success' => 'verifikasi berhasil, silahkan login!']);
+        }
+
+        return redirect(route('customer.login'))->with(['error' => 'Invalid verifikasi token!!']);
     }
 }

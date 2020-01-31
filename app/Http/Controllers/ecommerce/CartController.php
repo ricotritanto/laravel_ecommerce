@@ -14,6 +14,8 @@ use App\OrderDetail;
 use Illuminate\Support\Str;
 use DB;
 use cookie;
+use App\Mail\CustomerRegisterMail;
+use Mail;
 
 class CartController extends Controller
 {
@@ -142,14 +144,16 @@ class CartController extends Controller
             $subtotal = collect($carts)->sum(function($q){
                 return $q['qty'] * $q['product_price'];
             });
-
+            $password = Str::random(8);
             //simpan data customer baru dlu bro
             $customer = Customer::create([
                 'name' => $request->customer_name,
                 'email' => $request->email,
+                'password' => $password,
                 'phone_number' => $request->customer_phone,
                 'address' => $request->customer_address,
                 'district_id' => $request->district_id,
+                'activate_token' => Str::random(30),
                 'status' => false
             ]);
 
@@ -181,6 +185,8 @@ class CartController extends Controller
             DB::Commit();
             $carts = [];
             $cookie = cookie('laravel_carts', json_encode($carts), 2880);
+            //mengirim email ke customer dari service email
+            Mail::to($request->email)->send(new CustomerRegisterMail($customer, $password));
             return redirect(route('front.finish_checkout', $order->invoice))->cookie($cookie);
         }catch(\Exception $e){
             DB::rollback(); //jika error, maka dirollback ulang dbnya
