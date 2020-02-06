@@ -19,14 +19,14 @@ class LoginController extends Controller
         $this->validate($request,[
             'email' => 'required|email|exists:customers,email',
             'password' => 'required|string'
-        ]);
+        ]);        
         
         $auth = $request->only('email', 'password');
         $auth['status'] = 1; //yg login statusnya harus 1
-        if(auth()->guard('customer')->attempt($auth)){
+        if (auth()->guard('customer')->attempt($auth)) {
             return redirect()->intended(route('customer.dashboard'));
         }
-        return redirect()->back()->with(['error' => 'Email / Password salah..!!!']);
+        return redirect()->back()->with(['error' => 'Email / Password Salah']);
 
     }
 

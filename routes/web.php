@@ -28,12 +28,12 @@ Route::get('/checkout/{invoice}', 'Ecommerce\CartController@checkoutFinish')->na
 Route::group(['prefix' => 'member', 'namespace' => 'Ecommerce'], function(){
     Route::get('login', 'LoginController@loginForm')->name('customer.login');
     Route::post('login', 'LoginController@login')->name('customer.post_login');
-    Route::get('verify/{token}', 'frontcontroller@verifyCustomerRegistration')->name('customer.verify');
+    Route::get('verify/{token}', 'FrontController@verifyCustomerRegistration')->name('customer.verify');
 
     Route::group(['middleware' => 'customer'], function() {
-    Route::get('dashboard', 'LoginController@dashboard')->name('customer.dashboard');
-    Route::get('logout', 'LoginController@logout')->name('customer.logout');
-    });
+        Route::get('dashboard', 'LoginController@dashboard')->name('customer.dashboard');
+        Route::get('logout', 'LoginController@logout')->name('customer.logout');
+        });
 });
 
 

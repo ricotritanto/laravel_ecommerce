@@ -7,7 +7,7 @@
     <title>Verifikasi Pendaftaran Anda</title>
 </head>
 <body>
-    <h2>Hai, {{ $customer_name}}</h2>
+    <h2>Hai, {{ $customer->name}}</h2>
     <p>Terima kaih telah melakukan transaki pada aplikasi kami, berikut password anda: <strong>{{$password}}</stong></p>
     <p>Jangan lupa untuk melakukan verifikasi pendaftaran <a href="{{route('customer.verify', $customer->activate_token)}}" class="">DISINI</a>
 </body>

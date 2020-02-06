@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use App\Customer;
 
 class CustomerRegisterMail extends Mailable
 {
@@ -35,7 +36,7 @@ class CustomerRegisterMail extends Mailable
         // return $this->view('view.name');
         //mengeset subject email, view mana  yg akan diload  dan data apa yg akan dipasang ke view
         return $this->subject('verifikasi pendaftaran anda')
-            ->view('emails.register')
+            ->view('email.register')
             ->with([
                 'customer' => $this->customer,
                 'password' => $this->randomPassword
