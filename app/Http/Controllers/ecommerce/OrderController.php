@@ -9,7 +9,7 @@ use App\Payment;
 use Carbon\Carbon;
 use DB;
 
-class OrderContrller extends Controller
+class OrderController extends Controller
 {
     public function index()
     {
@@ -77,7 +77,19 @@ class OrderContrller extends Controller
             //DAN KIRIMKAN PESAN ERROR
             return redirect()->back()->with(['error' => $e->getMessage()]);
         }
+    }
 
-
+    public function view($invoice)
+    {
+        $order = Order::with(['district.city.province','details','details.product', 'payment'])
+        ->where('invoice', $invoice)->first();
+        //JADI KITA CEK, VALUE forUser() NYA ADALAH CUSTOMER YANG SEDANG LOGIN
+        //DAN ALLOW NYA MEMINTA DUA PARAMETER
+        //PERTAMA ADALAH NAMA GATE YANG DIBUAT SEBELUMNYA DAN YANG KEDUA ADALAH DATA ORDER DARI QUERY DI ATAS
+        if(\Gate::forUser(auth()->guard('customer')->user())->allows('order-view', $order))
+        {
+            return view('ecommerce.orders.view', compact('order'));
+        }
+        return redirect(route('customer.orders'))->with(['error' => 'Anda tidak diijinkan mengakses order org lain!']);
     }
 }
