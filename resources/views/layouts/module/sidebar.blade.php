@@ -18,6 +18,11 @@
                 <i class="nav-icon icon-drop"></i> Products
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('orders.index') }}">
+                <i class="nav-icon icon-drop"></i> Pesanan
+            </a>
+        </li>
 
         <li class="nav-item nav-dropdown">
             <a class="nav-link nav-dropdown-toggle" href="#">

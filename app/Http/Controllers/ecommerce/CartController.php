@@ -135,7 +135,7 @@ class CartController extends Controller
             //cek data customer dlu
             $customer = Customer::where('email', $request->email)->first();
             //jika tidak ada, user diarahkan utk login terlebih dahulu
-            if(!auth()->check() && $customer) {
+            if(!auth()->guard('customer')->check() && $customer) {
                 return redirect()->back()->with(['error' => 'Please Login..!!']);
             }
             //ambil data di keranjang belanja
@@ -144,18 +144,22 @@ class CartController extends Controller
             $subtotal = collect($carts)->sum(function($q){
                 return $q['qty'] * $q['product_price'];
             });
-            $password = Str::random(8);
-            //simpan data customer baru dlu bro
-            $customer = Customer::create([
-                'name' => $request->customer_name,
-                'email' => $request->email,
-                'password' => $password,
-                'phone_number' => $request->customer_phone,
-                'address' => $request->customer_address,
-                'district_id' => $request->district_id,
-                'activate_token' => Str::random(30),
-                'status' => false
-            ]);
+
+            //utk menghindari duplicate customer, masukkan query utk menambahkan query baru
+            if(!auth()->guard('customer')->check()){
+                $password = Str::random(8);
+                //simpan data customer baru dlu bro
+                $customer = Customer::create([
+                    'name' => $request->customer_name,
+                    'email' => $request->email,
+                    'password' => $password,
+                    'phone_number' => $request->customer_phone,
+                    'address' => $request->customer_address,
+                    'district_id' => $request->district_id,
+                    'activate_token' => Str::random(30),
+                    'status' => false
+                ]);
+            }         
 
             //simpan data orderannya
             $order = Order::create([
