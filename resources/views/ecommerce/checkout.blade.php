@@ -40,24 +40,29 @@
                                 @csrf
                                     <div class="col-md-12 form-group p_star">
                                         <label for="">Nama Lengkap</label>
-                                        <input type="text" class="form-control" id="first" name="customer_name" value="{{ auth()->guard('customer')->user()->name }}" required>
-                                        
+                                        <input type="text" class="form-control" id="first" name="customer_name" required>                                   
                                         <!-- UNTUK MENAMPILKAN JIKA TERDAPAT ERROR VALIDASI -->
                                         <p class="text-danger">{{ $errors->first('customer_name') }}</p>
                                     </div>
                                     <div class="col-md-6 form-group p_star">
                                         <label for="">No Telp</label>
-                                        <input type="text" class="form-control" id="number" name="customer_phone" value="{{ auth()->guard('customer')->user()->phone_number }}" required>
+                                        <input type="text" class="form-control" id="number" name="customer_phone" required>
                                         <p class="text-danger">{{ $errors->first('customer_phone') }}</p>
                                     </div>
                                     <div class="col-md-6 form-group p_star">
                                         <label for="">Email</label>
-                                        <input type="email" class="form-control" id="email" name="email" value="{{ auth()->guard('customer')->user()->email }}" required {{ auth()->guard('customer')->check() ? 'readonly':'' }}>
+                                        @if(auth()->guard('customer')->check())
+                                        <input type="email" class="form-control" id="email" name="email" 
+                                            value="{{ auth()->guard('customer')->user()->email }}" 
+                                            required {{ auth()->guard('customer')->check() ? 'readonly':'' }}>
+                                        @else
+                                        <input type="email" class="form-control" id="email" name="email" required>
+                                        @endif
                                         <p class="text-danger">{{ $errors->first('email') }}</p>
                                     </div>
                                     <div class="col-md-12 form-group p_star">
                                         <label for="">Alamat Lengkap</label>
-                                        <input type="text" class="form-control" id="add1" name="customer_address" value="{{ auth()->guard('customer')->user()->address }}" required>
+                                        <input type="text" class="form-control" id="add1" name="customer_address" required>
                                         <p class="text-danger">{{ $errors->first('customer_address') }}</p>
                                     </div>
                                     <div class="col-md-12 form-group p_star">

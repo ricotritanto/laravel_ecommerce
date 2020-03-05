@@ -11,20 +11,20 @@ class OrderController extends Controller
 {
     public function index()
     {
-        $orders = Order::with(['district.city.province'])->orderBy('created_at','DESC');
+        $orders = Order::with(['customer.district.city.province'])->withCount('return')->orderBy('created_at','DESC');
         //jika q tidak kosong
         if(request()->q !=''){
         //so, make query for search data byname, invoice, and address
             $orders = $orders->where(function($q){
-                $q->where('customer_name', 'LIKE', '%'. $request->q. '%')
-                ->orWhere('invoice', 'LIKE', '%'. $request->q. '%')
-                ->orWhere('customer_address', 'LIKE', '%'. $request->q. '%');
+                $q->where('customer_name', 'LIKE', '%'. request()->q. '%')
+                ->orWhere('invoice', 'LIKE', '%'. request()->q. '%')
+                ->orWhere('customer_address', 'LIKE', '%'. request()->q. '%');
             });
         }
         //jika status tidak kosong
-        if($request()->status !=''){
+        if(request()->status !=''){
             //maka data difilter berdasarkan status
-            $orders = $orders->where('status', $request()->status);
+            $orders = $orders->where('status', request()->status);
         }
 
         $orders = $orders->paginate(10); //load data per10
@@ -46,7 +46,7 @@ class OrderController extends Controller
         return view('orders.view', compact('order'));
     }
 
-    public function acceptPayment()
+    public function acceptPayment($invoice )
     {
         //MENGAMBIL DATA CUSTOMER BERDASARKAN INVOICE
         $order = Order::with(['payment'])->where('invoice', $invoice)->first();
@@ -67,6 +67,21 @@ class OrderController extends Controller
         //KIRIM EMAIL KE PELANGGAN TERKAIT
         Mail::to($order->customer->email)->send(new OrderMail($order));
         //REDIRECT KEMBALI
+        return redirect()->back();
+    }
+
+    public function return($invoice)
+    {
+        $order = Order::with(['return', 'customer'])->where('invoice', $invoice)->first();
+        return view('orders.return', compact('order'));
+    }
+
+    public function approveReturn(Request $request)
+    {
+        $this->validate($request,['status'=> 'required']);// validasi status
+        $order = Order::find($request->order_id); // query berdasarkan ID
+        $order->return()->update(['status' => $request->status]);// update status yg ada di tabel order_returns by order
+        $order->update(['status' => 4]);// update sttus yg ada diorders
         return redirect()->back();
     }
 }

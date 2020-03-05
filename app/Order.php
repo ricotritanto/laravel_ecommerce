@@ -30,7 +30,7 @@ class Order extends Model
 
     public function details()
     {
-        return $this->hasMany(OrdersDetail::class);
+        return $this->hasMany(OrderDetail::class);
     }
 
      //relasi dari orders ke payment
@@ -43,4 +43,9 @@ class Order extends Model
      {
          return $this->belongsTo(Customer::class);
      }
+
+     public function return()
+    {
+        return $this->hasOne(OrderReturn::class);
+    }
 }

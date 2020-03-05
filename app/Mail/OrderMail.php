@@ -17,7 +17,7 @@ class OrderMail extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Order $order)
     {
         $this->order = $order;
     }
@@ -32,8 +32,11 @@ class OrderMail extends Mailable
         //kirim email sebagai subjek berikut
         //template yg digunakan adl order.blade.php yg ada difolder emails
         //dan passing data ke order file order.blade.php
-        return $this->subject('Pesanan Anda dikirim'. $this->order->invoice)
-                    ->view('email.order')->with(['order=>$this->order']);
+        return $this->subject('Pesanan Anda Dikirim ' . $this->order->invoice)
+            ->view('email.order')
+            ->with([
+                'order' => $this->order
+            ]);
 
         // return $this->view('view.name');
     }

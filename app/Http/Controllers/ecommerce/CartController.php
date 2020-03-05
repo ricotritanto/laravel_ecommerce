@@ -190,7 +190,10 @@ class CartController extends Controller
             $carts = [];
             $cookie = cookie('laravel_carts', json_encode($carts), 2880);
             //mengirim email ke customer dari service email
-            Mail::to($request->email)->send(new CustomerRegisterMail($customer, $password));
+            if(!auth()->guard('customer')->check()){
+                Mail::to($request->email)->send(new CustomerRegisterMail($customer, $password));
+            }
+           
             return redirect(route('front.finish_checkout', $order->invoice))->cookie($cookie);
         }catch(\Exception $e){
             DB::rollback(); //jika error, maka dirollback ulang dbnya
