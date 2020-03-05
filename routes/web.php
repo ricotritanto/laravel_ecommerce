@@ -39,6 +39,17 @@ Route::group(['prefix' => 'member', 'namespace' => 'Ecommerce'], function(){
 
         Route::get('payment', 'OrderController@paymentForm')->name('customer.paymentForm');
         Route::post('payment', 'OrderController@storePayment')->name('customer.savePayment');
+
+        Route::get('setting', 'FrontController@customerSettingForm')->name('customer.settingForm');
+        Route::post('setting', 'FrontController@customerUpdateProfile')->name('customer.setting');
+
+        Route::get('orders/{$invoice}', 'OrderController@view')->name('customer.view_order');
+        Route::get('orders/pdf/{$invoice}', 'OrderController@pdf')->name('customer.order_pdf');
+
+        Route::post('orders/accept', 'OrderController@acceptOrder')->name('customer.order_accept');
+
+        Route::get('orders/return/{invoice}', 'OrderController@returnForm')->name('customer.order_return');
+        Route::put('orders/return/{invoice}', 'OrderController@processReturn')->name('customer.return');
         });
 });
 
@@ -54,6 +65,18 @@ Route::group(['prefix' => 'administrator', 'middleware'=> 'auth'], function(){
     Route::resource('product', 'ProductController')->except(['show']);
     Route::get('/product/bulk', 'ProductController@massUploadForm')->name('product.bulk');
     Route::post('/product/bulk', 'ProductController@massUpload')->name('product.saveBulk');
+
+    Route::group(['prefix' => 'orders'], function() {
+        Route::get('/', 'OrderController@index')->name('orders.index');
+        Route::delete('/{id}', 'OrderController@destroy')->name('orders.destroy');
+        Route::get('/{invoice}', 'OrderController@view')->name('orders.view');
+        Route::get('/payment/{invoice}', 'OrderController@acceptPayment')->name('orders.approve_payment');
+        Route::post('/shipping', 'OrderController@shippingOrder')->name('orders.shipping');
+
+        Route::get('/return/{invoice}', 'OrderController@return')->name('orders.return');
+        Route::post('/return', 'OrderController@approveReturn')->name('orders.approve_return');
+        //SEMUA ROUTE BARU SEPANJANG ARTIKEL INI AKAN DISIMPAN DI DALAM BLOCK CODE INI
+    });
 
     
 });

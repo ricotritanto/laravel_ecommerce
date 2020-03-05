@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
 use App\Customer;
+use App\Province;
 
 class FrontController extends Controller
 {
@@ -50,5 +51,42 @@ class FrontController extends Controller
         }
 
         return redirect(route('customer.login'))->with(['error' => 'Invalid verifikasi token!!']);
+    }
+
+    public function CustomerSettingForm()
+    {
+        //get data dari customer yg sedang login
+        $customer = auth()->guard('customer')->user()->load('district');
+        // get data province utk didisplay pd select box
+        $provinces = Province::orderBy('name', 'ASC')->get();
+        //load view setting.blade.php & passing data customer-province
+        return view('ecommerce.setting', compact('customer', 'provinces'));
+    }
+
+    public function customerUpdateProfile(Request $request)
+    {
+        //validasi data yg dikirim
+        $this->validate($request,[
+            'name' => 'required|string|max:100',
+            'phone_number' => 'required|max:15',
+            'address' => 'required|string',
+            'district_id' => 'required|exists:districts,id',
+            'password' => 'nullable|string|min:6'
+        ]);
+
+        //get data customer yg login
+        $user = auth()->guard('customer')->user();
+        //get data yg dkirim dri form
+        //but, hnya  4 kolom saja sesuai yg ada dibwh
+        $data = $request->only('name', 'phone_number', 'address', 'district_id');
+        //untuk password kita cek dlu, jika tdk kosong
+        if($request->password !=''){
+            //maka tambahkan kedalam array
+            $data['password'] = $request->password;
+        }
+        //then, update datanya
+        $user->update($data);
+        return redirect()->back()->with(['success' => 'Profile update success!']);
+
     }
 }
