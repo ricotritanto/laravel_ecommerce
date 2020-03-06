@@ -11,12 +11,12 @@ class OrderReturn extends Model
 
     public function getStatusLabelAttribute()
     {
-        if($this->sttaus == 0 ) {
+        if($this->status == 0 ) {
             return '<span class="badge badge-secondary">Menunggu konfirmasi';
         }elseif($this->status == 2 )
         {   
             return '<span class="badge badge-danger">Ditolak!';
         }
-        return '<span class="badge badge-success">Selesai';
+            return '<span class="badge badge-success">Selesai';
     }
 }
