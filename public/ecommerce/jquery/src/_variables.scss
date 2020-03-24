@@ -1,0 +1,10 @@
+$dm_padding : 10px !default;
+
+$dm_bg		: #eee;
+$dm_color	: #333;
+
+.dm-menu
+{
+	--dm-bg: $dm_bg;
+	--dm-color: $dm_color;
+}

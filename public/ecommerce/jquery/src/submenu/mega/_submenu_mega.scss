@@ -1,0 +1,26 @@
+@if ( $dm_opt_item_submenu_mega )
+{
+	.dm-item_submenu-mega
+	{
+		> ul > li
+		{
+			border-top: none !important;
+
+			+ li
+			{
+				padding-left: $dm_submenu_padding_left;
+			}
+		}
+
+		&:hover > ul
+		{
+			display: flex !important;
+			align-items: stretch;
+
+			> li
+			{
+				flex: 1;
+			}
+		}
+	}
+}

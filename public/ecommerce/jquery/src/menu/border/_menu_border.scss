@@ -1,0 +1,9 @@
+@if ( $dm_opt_menu_border )
+{
+	.dm-menu_border > ul
+	{
+		border-bottom: $dm_menu_border_width solid $dm_menu_border_color;
+		border-bottom-width: var( --dm-menu-border-width );
+		border-bottom-color: var( --dm-menu-border-color );
+	}
+}

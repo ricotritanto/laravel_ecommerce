@@ -1,0 +1,8 @@
+$dm_opt_menu_subitem_hover_bg	: $dm_opt_menu_submenu !default;
+
+$dm_subitem_hover_bg 			: #f3f3f3 !default;
+
+.dm-menu
+{
+	--dm-subitem-hover-bg: $dm_subitem_hover_bg;
+}

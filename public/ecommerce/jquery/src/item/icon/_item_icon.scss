@@ -1,0 +1,66 @@
+@if ( $dm_opt_item_icon )
+{
+	.dm-item_icon-only,
+	.dm-item_icon-text
+	{
+		> a,
+		> span
+		{
+			> [class*="fa-"]
+			{
+				font-size: 120%;
+			}
+		}
+	}
+	.dm-item_icon-text
+	{
+		> a,
+		> span
+		{
+			> [class*="fa-"]
+			{
+				margin-right: 4px;
+				vertical-align: text-top;
+			}
+		}
+	}
+
+	.dm-menu > ul > .dm-item_icon-only
+	{
+		> a,
+		> span
+		{
+			padding-left:  $dm_icon_padding_left;
+			padding-right: $dm_icon_padding_right;
+
+			//	remove submenu indicator
+			&:before
+			{
+				content: none;
+				display: none;
+			}
+		}
+	}
+
+
+	@if ( $dm_opt_menu_item_border )
+	{
+		.dm-menu_item-border > ul > .dm-item_icon-only:hover
+		{
+			> a,
+			> span
+			{
+				&:after
+				{
+					left: 5px;
+					right: 5px;
+				}
+			}
+			> ul
+			{
+				margin-left: 5px;
+				margin-right: 5px;
+			}
+		}
+	}
+}

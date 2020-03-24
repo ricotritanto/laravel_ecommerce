@@ -1,0 +1,55 @@
+.dm-menu
+{
+	li ul
+	{
+		display: none;
+	}
+	&:not( .dm-menu_submenu ) li ul
+	{
+		display: none !important;
+	}
+}
+
+@if ( $dm_opt_menu_submenu )
+{
+	.dm-menu_submenu
+	{
+		li ul
+		{
+			background: var( --dm-submenu-bg );
+			color: var( --dm-submenu-color );
+
+			//	TODO: of nowrap of submenu vaste breedte
+			white-space: nowrap;
+
+			padding: $dm_submenu_padding_top $dm_submenu_padding_right $dm_submenu_padding_bottom $dm_submenu_padding_left;
+			position: absolute;
+			top: 0;
+			left: $dm_flyout_offset_left;
+			z-index: 1;
+		}
+		li:hover > ul
+		{
+			display: block;
+		}
+
+		> ul > li > ul
+		{
+			min-width: 100%;
+			top: 100%;
+			left: 0;
+		}
+	}
+}
+
+
+@import 
+	'align/submenu_align',
+	'arrow/submenu_arrow',
+	'border/submenu_border',
+	'fullwidth/submenu_fullwidth',
+	'image/submenu_image',
+	'inline/submenu_inline',
+	'mega/submenu_mega',
+	'shadow/submenu_shadow',
+	'tabs/submenu_tabs';

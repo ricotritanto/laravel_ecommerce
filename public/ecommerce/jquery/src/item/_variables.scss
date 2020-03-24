@@ -1,0 +1,17 @@
+$dm_menu_height				: 50px !default;
+$dm_item_padding_left		: $dm_padding * 2 !default;
+$dm_item_padding_right		: $dm_padding * 2 !default;
+
+$dm_item_hover_color		: #333;
+$dm_item_hover_bg			: #ccc;
+$dm_item_current_color		: #eee;
+$dm_item_current_bg			: #54b4eb;
+
+.dm-menu
+{
+	--dm-menu-height: $dm_menu_height;
+	--dm-item-hover-color: $dm_item_hover_color;
+	--dm-item-hover-bg: $dm_item_hover_bg;
+	--dm-item-current-color: $dm_item_current_color;
+	--dm-item-current-bg: $dm_item_current_bg;
+}

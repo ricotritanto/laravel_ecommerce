@@ -1,0 +1,39 @@
+@if ( $dm_opt_subitem_submenu_inline )
+{
+	.dm-menu li .dm-subitem_submenu-inline
+	{
+		> a,
+		> span
+		{
+			font-weight: bold;
+		}
+		> ul
+		{
+			background: none !important;
+			box-shadow: none !important;
+			display: block !important;
+			padding-top: 0 !important;
+			padding-right: 0 !important;
+			padding-left: 0 !important;
+			position: static !important;
+
+			> li 
+			{
+				border-top: none !important;
+
+				> span,
+				> a
+				{
+					padding: $dm_inline_item_padding_top $dm_inline_item_padding_right $dm_inline_item_padding_bottom $dm_inline_item_padding_left;
+
+					&:before
+					{
+						content: '›';
+						display: inline-block;
+						margin-right: 5px;
+					}
+				}
+			}
+		}
+	}
+}

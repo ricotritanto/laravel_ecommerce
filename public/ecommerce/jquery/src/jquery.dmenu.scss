@@ -1,0 +1,59 @@
+@import 
+	'variables.concat';
+
+
+.dm-hidden
+{
+	display: none !important;
+}
+
+
+.dm-menu
+{
+	color: $dm_color;
+	color: var( --dm-color );
+
+	background: $dm_bg;
+	background: var( --dm-bg );
+
+	padding: $dm_menu_padding_top $dm_menu_padding_right $dm_menu_padding_bottom $dm_menu_padding_left;
+	position: relative;
+
+	div,
+	ul,
+	li,
+	span,
+	a
+	{
+		color: inherit;
+		box-sizing: border-box;
+		display: block;
+	}
+	ul,
+	li,
+	span,
+	a
+	{
+		position: relative;
+	}
+
+	a
+	{
+		text-decoration: none;
+	}
+
+	ul,
+	li
+	{
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+}
+
+
+@import
+	'menu/menu',
+	'item/item',
+	'submenu/submenu',
+	'subitem/subitem';

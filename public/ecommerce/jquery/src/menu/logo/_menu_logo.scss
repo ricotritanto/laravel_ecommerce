@@ -1,0 +1,35 @@
+//	Logo
+@if ( $dm_opt_menu_logo )
+{
+	.dm-menu_logo
+	{
+		> ul
+		{
+			padding-left: var( --dm-logo-width );
+		}
+
+		> span,
+		> a
+		{
+			background: none left center / contain no-repeat transparent;
+			background-origin: content-box;
+			display: block;
+			width: var( --dm-logo-width );
+			padding: $dm_logo_padding_top $dm_logo_padding_right $dm_logo_padding_bottom $dm_logo_padding_left;
+			position: absolute;
+			top: $dm_menu_padding_top;
+			left: $dm_menu_padding_left;
+			bottom: $dm_menu_padding_bottom;
+			z-index: 1;
+		}
+	}
+
+	.dm-menu:not( .dm-menu_logo )
+	{
+		> span,
+		> a
+		{
+			display: none;
+		}
+	}
+}

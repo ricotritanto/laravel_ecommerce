@@ -1,0 +1,15 @@
+@if ( $dm_opt_menu_subitem_border )
+{
+	.dm-menu_subitem-border
+	{
+		li li
+		{
+			border-top: 1px solid var( --dm-subitem-border );
+
+			&:first-child
+			{
+				border-top: none;
+			}
+		}
+	}
+}

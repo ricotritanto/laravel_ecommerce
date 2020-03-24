@@ -1,0 +1,10 @@
+@if ( $dm_opt_menu_submenu_shadow )
+{
+	.dm-menu_submenu-shadow
+	{
+		li ul
+		{
+			box-shadow: var( --dm-submnu-boxshadow );
+		}
+	}
+}

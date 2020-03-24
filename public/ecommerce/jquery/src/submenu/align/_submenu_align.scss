@@ -1,0 +1,25 @@
+//	Enable submenus to align right to their parent
+@if ( $dm_opt_item_submenu_align_right )
+{
+	.dm-item_submenu-align-right
+	{
+		> ul
+		{
+			left: auto !important; 
+			right: 0;
+		}
+	}
+}
+
+//	Enable sub-submenus to flyout to the left of their parent
+@if ( $dm_opt_subitem_submenu_align_right )
+{
+	.dm-subitem_submenu-align-right
+	{
+		> ul
+		{
+			left: auto !important;
+			right: $dm_flyout_offset_right;
+		}
+	}
+}

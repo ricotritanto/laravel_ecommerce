@@ -1,0 +1,8 @@
+$dm_opt_item_submenu_tabs	: $dm_opt_menu_submenu !default;
+
+$dm_submenu_tabs_bg			: #f3f3f3 !default;
+
+.dm-menu
+{
+	--dm-submenu-tabs-bg: $dm_submenu_tabs_bg;
+}
