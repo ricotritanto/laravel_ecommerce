@@ -1,0 +1,29 @@
+@if ( $dm_opt_menu_align )
+{
+	.dm-menu_align-right
+	{
+		> ul
+		{
+			justify-content: flex-end;
+		}
+	}
+	.dm-menu_align-center
+	{
+		> ul
+		{
+			justify-content: center;
+		}
+	}
+	.dm-menu_align-justify
+	{
+		> ul
+		{
+			justify-content: space-evenly;
+
+			> li
+			{
+				flex-grow: 1;
+			}
+		}
+	}
+}

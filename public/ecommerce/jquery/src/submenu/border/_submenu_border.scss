@@ -1,0 +1,12 @@
+@if ( $dm_opt_menu_submenu_border )
+{
+	.dm-menu_submenu-border
+	{
+		> ul > li > ul
+		{
+			border-top: $dm_menu_border_width solid $dm_item_hover_bg;
+			border-top-color: var( --dm-item-hover-bg );
+			border-top-width: var( --dm-menu-border-width );
+		}
+	}
+}

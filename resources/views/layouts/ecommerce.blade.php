@@ -31,6 +31,8 @@
 	.menu-sidebar-area > li > a {
 		color: black
 	}
+
+	
 	</style>
 	@yield('css')
 </head>

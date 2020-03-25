@@ -1,0 +1,8 @@
+$dm_opt_menu_subitem_border		: $dm_opt_menu_submenu !default;
+
+$dm_subitem_border 				: rgba( #000, 0.1 ) !default;
+
+.dm-menu
+{
+	--dm-subitem-border: $dm_subitem_border;
+}

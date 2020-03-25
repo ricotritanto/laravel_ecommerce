@@ -1,0 +1,16 @@
+@if ( $dm_opt_menu_submenu )
+{
+	.dm-menu li li
+	{
+		span,
+		a
+		{
+			padding: $dm_subitem_padding_top $dm_subitem_padding_right $dm_subitem_padding_bottom $dm_subitem_padding_left;
+		}
+	}
+}
+
+
+@import
+	'bg/subitem_bg',
+	'border/subitem_border';

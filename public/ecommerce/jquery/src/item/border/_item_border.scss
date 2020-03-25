@@ -1,0 +1,72 @@
+@if ( $dm_opt_menu_item_border )
+{
+	.dm-menu_item-border
+	{
+		> ul > li
+		{
+			> a,
+			> span
+			{
+				&:after
+				{
+					content: '';
+					display: block;
+					height: var( --dm-menu-border-width );
+					position: absolute;
+					bottom: 0;
+					left: $dm_item_padding_left;
+					right: $dm_item_padding_right;
+				}
+			}
+			&.dm-selected
+			{
+				> a,
+				> span
+				{
+					&:after
+					{
+						background: var( --dm-item-current-bg );
+					}
+				}
+			}
+			&:hover
+			{
+				> a,
+				> span
+				{
+					&:after
+					{
+						background: var( --dm-item-hover-bg );
+					}
+				}
+			}
+
+			//	Align submenu to the border
+			&:not( .dm-item_submenu-fullwidth ) > ul
+			{
+				margin-left: $dm_item_padding_left;
+				margin-right: $dm_item_padding_right;
+			}
+		}
+
+		//	Move down the mainitem border and submenu if the menu has a border
+		&.dm-menu_border
+		{
+			> ul > li
+			{
+				> a,
+				> span
+				{
+					&:after
+					{
+						bottom: calc( 0px - var( --dm-menu-border-width ) );
+					}
+				}
+				> ul
+				{
+					top: calc( 100% + var( --dm-menu-border-width ) );
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,10 @@
+$dm_opt_menu_border		: true !default;
+
+$dm_menu_border_color	: #54b4eb !default;
+$dm_menu_border_width	: 5px !default;
+
+.dm-menu
+{
+	--dm-menu-border-color: $dm_menu_border_color;
+	--dm-menu-border-width: $dm_menu_border_width;
+}

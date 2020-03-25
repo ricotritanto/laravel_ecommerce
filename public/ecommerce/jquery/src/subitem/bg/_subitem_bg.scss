@@ -1,0 +1,41 @@
+@if ( $dm_opt_menu_subitem_hover_bg )
+{
+	.dm-menu_subitem-bg
+	{
+		li li
+		{
+			&:hover,
+			&.dm-selected
+			{
+				> a,
+				> span
+				{
+					background-color: var( --dm-subitem-hover-bg );
+				}
+			}
+		}
+
+		@if ( $dm_opt_subitem_submenu_inline or $dm_opt_item_submenu_mega )
+		{
+			.dm-subitem_submenu-inline,
+			.dm-item_submenu-mega > ul > li
+			{
+				&:hover
+				{
+					> a,
+					> span
+					{
+						background: none;
+					}
+				}
+				> a[href]
+				{
+					&:hover
+					{
+						background-color: var( --dm-subitem-hover-bg );
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,13 @@
+$dm_opt_menu_logo		: true !default;
+
+$dm_logo_width			: 50px !default;
+
+$dm_logo_padding_top	: $dm_padding / 2 !default;
+$dm_logo_padding_bottom	: $dm_padding / 2 !default;
+$dm_logo_padding_left	: $dm_padding !default;
+$dm_logo_padding_right 	: $dm_padding !default;
+
+.dm-menu
+{
+	--dm-logo-width: $dm_logo_width;
+}

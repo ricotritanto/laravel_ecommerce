@@ -1,0 +1,33 @@
+@if ( $dm_opt_menu_item_bg )
+{
+	.dm-menu_item-bg
+	{
+		> ul > li
+		{
+			&.dm-selected
+			{
+				> a,
+				> span
+				{
+					background: $dm_item_current_bg;
+					background: var( --dm-item-current-bg );
+
+					color: $dm_item_current_color;
+					color:var( --dm-item-current-color );
+				}
+			}
+			&:hover
+			{
+				> a,
+				> span
+				{
+					background: dm_item_hover_bg;
+					background: var( --dm-item-hover-bg );
+
+					color: $dm_item_hover_color;
+					color: var( --dm-item-hover-color );
+				}
+			}
+		}
+	}
+}

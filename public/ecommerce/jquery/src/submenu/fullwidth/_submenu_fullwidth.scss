@@ -1,0 +1,15 @@
+@if ( $dm_opt_item_submenu_fullwidth )
+{
+	.dm-item_submenu-fullwidth
+	{
+		position: static !important;
+
+		> ul
+		{
+			margin-left: $dm_menu_padding_left;
+			margin-right: $dm_menu_padding_right;
+			right: 0;
+			top: calc( 100% - $dm_menu_padding_bottom );
+		}
+	}
+}

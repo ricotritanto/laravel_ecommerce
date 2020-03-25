@@ -1,0 +1,30 @@
+@if ( $dm_opt_menu_item_subindicator )
+{
+	.dm-menu_item-subindicator
+	{
+		> ul > .dm-item_parent
+		{
+			> span,
+			> a
+			{
+				&:before
+				{
+					content: '';
+
+					border: 3px solid transparent;
+					border-top: 4px solid $dm_color;
+					border-top-color: var( --dm-color );
+
+					opacity: 0.3;
+					display: block;
+					width: 0;
+					height: 0;
+					margin-top: -1px;
+					position: absolute;
+					top: 50%;
+					right: $dm_item_padding_right - 10;
+				}
+			}
+		}
+	}
+}
