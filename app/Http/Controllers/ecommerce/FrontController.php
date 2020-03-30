@@ -89,4 +89,9 @@ class FrontController extends Controller
         return redirect()->back()->with(['success' => 'Profile update success!']);
 
     }
+
+    public function contact()
+    {
+        return view('ecommerce.contact');
+    }
 }
