@@ -8,10 +8,10 @@
 
 <!--================Home Banner Area =================-->
 <section class="banner_area">
-        <div class="banner_inner d-flex align-items-center">
+        <div class="banner_prod d-flex align-items-center">
             <div class="container">
                 <div class="banner_content text-center">
-                    <h2>Jual Product Fashion</h2>
+                    <h2>Product</h2>
                     <div class="page_link">
                         <a href="{{ route('front.index') }}">Home</a>
                         <a href="{{ route('front.product') }}">Product</a>
@@ -74,31 +74,23 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="left_sidebar_area">
-                        <aside class="left_widgets cat_widgets">
+                        <aside class="lleft_widgets p_filter_widgets">
                             <div class="l_w_title">
                                 <h3>Category Product</h3>
                             </div>
-                            <div class="widgets_inner">
-                                <ul class="list">
-                                  
-                                  	<!-- PROSES LOOPING DATA KATEGORI -->
-                                    @foreach ($categories as $category)
+                           
+                            <div class="widgets_inner"> 
+                                @foreach ($categories as $category)
+                                <h4><a href="{{url('/category/'. $category->slug)}}">{{$category->name}}</a></h4>
+                                @foreach ($category->child as $child)
+                                <ul class="list">   
                                     <li>
-                                        <!-- JIKA CHILDNYA ADA, MAKA KATEGORI INI AKAN MENG-EXPAND DATA DIBAWAHNYA -->
-                                        <strong><a href="{{url('/category/'. $category->slug)}}">{{$category->name}}</a></strong>
-                                        
-                                      	<!-- PROSES LOOPING DATA CHILD KATEGORI -->
-                                        @foreach ($category->child as $child)
-                                        <ul class="list" style="display: block">
-                                            <li>
-                                                <a href="{{ url('/category/' . $child->slug) }}">{{ $child->name }}</a>
-                                            </li>
-                                        </ul>
-                                        @endforeach
-                                    </li>
-                                    @endforeach
+                                        <a href="{{ url('/category/' . $child->slug) }}">{{ $child->name }}</a>
+                                    </li>                                 
                                 </ul>
-                            </div>
+                                @endforeach
+                                @endforeach
+                            </div>  
                         </aside>
                     </div>
                 </div>
