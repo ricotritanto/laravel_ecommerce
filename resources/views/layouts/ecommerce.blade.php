@@ -1,258 +1,246 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="icon" href="{{ asset('ecommerce/img/favicon.png')}}" type="image/png">
-    
-    @yield('title')
-    
-	<link rel="stylesheet" href="{{ asset('ecommerce/css/bootstrap.css') }}">
-	<link rel="stylesheet" href="{{ asset('ecommerce/vendors/linericon/style.css') }}">
-	<link rel="stylesheet" href="{{ asset('ecommerce/css/font-awesome.min.css') }}">
-	<link rel="stylesheet" href="{{ asset('ecommerce/vendors/owl-carousel/owl.carousel.min.css') }}">
-	<link rel="stylesheet" href="{{ asset('ecommerce/vendors/lightbox/simpleLightbox.css') }}">
-	<link rel="stylesheet" href="{{ asset('ecommerce/vendors/nice-select/css/nice-select.css') }}">
-	<link rel="stylesheet" href="{{ asset('ecommerce/vendors/animate-css/animate.css') }}">
-	<link rel="stylesheet" href="{{ asset('ecommerce/vendors/jquery-ui/jquery-ui.css') }}">
-	
-	<link rel="stylesheet" href="{{ asset('ecommerce/css/style.css') }}">
-	<link rel="stylesheet" href="{{ asset('ecommerce/css/responsive.css') }}">
-	<style>
-	.menu-sidebar-area {
-		list-style-type:none; padding-left: 0; font-size: 15pt;
-	}
-	.menu-sidebar-area > li {
-		margin:0 0 10px 0;
-		list-style-position:inside;
-		border-bottom: 1px solid black;
-	}
-	.menu-sidebar-area > li > a {
-		color: black
-	}
-
-	
-	</style>
-	@yield('css')
-</head>
-
+<title>Jasa Pemasang CCTV</title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Electronic Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+	SmartPhone Compatible web template, free web designs for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+	function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<!-- Custom Theme files -->
+<link href="{{ asset('ecommerce/thema-b/css/bootstrap.css')}}" rel="stylesheet" type="text/css" media="all" />
+<link href="{{ asset('ecommerce/thema-b/css/style.css')}}" rel="stylesheet" type="text/css" media="all" />
+<link href="{{ asset('ecommerce/thema-b/css/fasthover.css')}}" rel="stylesheet" type="text/css" media="all" />
+<link href="{{ asset('ecommerce/thema-b/css/popuo-box.css')}}" rel="stylesheet" type="text/css" media="all" />
+<!-- //Custom Theme files -->
+<!-- font-awesome icons -->
+<link href="{{ asset('ecommerce/thema-b/css/font-awesome.css')}}" rel="stylesheet"> 
+<!-- //font-awesome icons -->
+<!-- js -->
+<script src="{{ asset('ecommerce/thema-b/js/jquery.min.js')}}"></script>
+<link rel="stylesheet" href="{{ asset('ecommerce/thema-b/css/jquery.countdown.css')}}" /> <!-- countdown --> 
+<!-- //js -->  
+<!-- web fonts --> 
+<link href='//fonts.googleapis.com/css?family=Glegoo:400,700' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<!-- //web fonts -->  
+<!-- start-smooth-scrolling -->
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+<!-- //end-smooth-scrolling --> 
+</head> 
 <body>
-        <!--================Header Menu Area =================-->
-	<header class="header_area">
-		<div class="top_menu row m0">
-			<div class="container-fluid">
-				<div class="float-left">
-					<p>Call Us: 012 44 5698 7456 896</p>
+	<!-- for bootstrap working -->
+	<script type="text/javascript" src="{{ asset('ecommerce/thema-b/js/bootstrap-3.1.1.min.js')}}"></script>
+	<!-- //for bootstrap working -->
+	<!-- header modal -->
+	<div class="modal fade" id="myModal88" tabindex="-1" role="dialog" aria-labelledby="myModal88"
+		aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;</button>
+					<h4 class="modal-title" id="myModalLabel">Don't Wait, Login now!</h4>
 				</div>
-                <div class="float-right">
-					<ul class="right_side">
-					@if (auth()->guard('customer')->check())
-						<li><a href="{{ route('customer.logout') }}">Logout</a></li>
-					@else
-						<li><a href="{{route('customer.login')}}">Login</a></li>
-					@endif
-						<li><a href="{{ route('customer.dashboard') }}">My Account</a></li>
-						<li><a href="contact.html">Contact Us</a></li>
-					</ul>
+				<div class="modal-body modal-body-sub">
+					<div class="row">
+						<div class="col-md-8 modal_body_left modal_body_left1" style="border-right: 1px dotted #C2C2C2;padding-right:3em;">
+							<div class="sap_tabs">	
+								<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+									<ul>
+										<li class="resp-tab-item" aria-controls="tab_item-0"><span>Sign in</span></li>
+										<li class="resp-tab-item" aria-controls="tab_item-1"><span>Sign up</span></li>
+									</ul>		
+									<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
+										<div class="facts">
+											<div class="register">
+												<form action="#" method="post">			
+													<input name="Email" placeholder="Email Address" type="text" required="">						
+													<input name="Password" placeholder="Password" type="password" required="">										
+													<div class="sign-up">
+														<input type="submit" value="Sign in"/>
+													</div>
+												</form>
+											</div>
+										</div> 
+									</div>	 
+									<div class="tab-2 resp-tab-content" aria-labelledby="tab_item-1">
+										<div class="facts">
+											<div class="register">
+												<form action="#" method="post">			
+													<input placeholder="Name" name="Name" type="text" required="">
+													<input placeholder="Email Address" name="Email" type="email" required="">	
+													<input placeholder="Password" name="Password" type="password" required="">	
+													<input placeholder="Confirm Password" name="Password" type="password" required="">
+													<div class="sign-up">
+														<input type="submit" value="Create Account"/>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div> 			        					            	      
+								</div>	
+							</div>
+							<script src="{{ asset('ecommerce/thema-b/js/easyResponsiveTabs.js')}}" type="text/javascript"></script>
+							<script type="text/javascript">
+								$(document).ready(function () {
+									$('#horizontalTab').easyResponsiveTabs({
+										type: 'default', //Types: default, vertical, accordion           
+										width: 'auto', //auto or any width like 600px
+										fit: true   // 100% fit in a container
+									});
+								});
+							</script>
+							<div id="OR" class="hidden-xs">OR</div>
+						</div>
+						<div class="col-md-4 modal_body_right modal_body_right1">
+							<div class="row text-center sign-with">
+								<div class="col-md-12">
+									<h3 class="other-nw">Sign in with</h3>
+								</div>
+								<div class="col-md-12">
+									<ul class="social">
+										<li class="social_facebook"><a href="#" class="entypo-facebook"></a></li>
+										<li class="social_dribbble"><a href="#" class="entypo-dribbble"></a></li>
+										<li class="social_twitter"><a href="#" class="entypo-twitter"></a></li>
+										<li class="social_behance"><a href="#" class="entypo-behance"></a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
-        <div class="main_menu">
-			<nav class="navbar navbar-expand-lg navbar-light">
-				<div class="container-fluid">
-					<!-- Brand and toggle get grouped for better mobile display -->
-                    <a class="navbar-brand logo_h" href="{{ url('/') }}">
-						<img src="{{asset('ecommerce/img/logo2.png')}}" alt="">
-					</a>
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-					 aria-expanded="false" aria-label="Toggle navigation">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-						<div class="row w-100">
-							<div class="col-lg-7 pr-0">
-								@include('layouts.ecommerce.module.menu')
-							</div>
-
-							<div class="col-lg-5">
-								<ul class="nav navbar-nav navbar-right right_nav pull-right">
-									<hr>
-									<li class="nav-item">
-										<a href="#" class="icons">
-											<i class="fa fa-search" aria-hidden="true"></i>
-										</a>
-									</li>
-									<hr>
-									<li class="nav-item">
-										<a href="#" class="icons">
-											<i class="fa fa-user" aria-hidden="true"></i>
-										</a>
-									</li>
-									<hr>
-									<li class="nav-item">
-										<a href="#" class="icons">
-											<i class="fa fa-heart-o" aria-hidden="true"></i>
-										</a>
-									</li>
-									<hr>
-									<li class="nav-item">
-										<a href="{{route('front.list_cart')}}" class="icons">
-											<i class="lnr lnr lnr-cart"></i>
-										</a>
-									</li>
-									<hr>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</nav>
-		</div>
-	</header>
-	<!--================Header Menu Area =================-->
-    @yield('content')
-    
-    <!--================ Subscription Area ================-->
-	<section class="subscription-area section_gap">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="section-title text-center">
-                        <h2>Subscribe for Our Newsletter</h2>
-                        <span>We won’t send any kind of spam</span>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div id="mc_embed_signup">
-                        <form target="_blank" novalidate action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&id=92a4423d01"
-                            method="get" class="subscription relative">
-                            <input type="email" name="EMAIL" placeholder="Email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'"
-                                required="">
-                            <!-- <div style="position: absolute; left: -5000px;">
-                                <input type="text" name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="">
-                            </div> -->
-                            <button type="submit" class="newsl-btn">Get Started</button>
-                            <div class="info"></div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--================ End Subscription Area ================-->
-    <!--================ start footer Area  =================-->
-	<footer class="footer-area section_gap">
+	</div>
+	<script>
+		$('#myModal88').modal('show');
+	</script>  
+	<!-- header modal -->
+	<!-- header -->
+	<div class="header" id="home1">
 		<div class="container">
-			<div class="row">
-				<div class="col-lg-3  col-md-6 col-sm-6">
-					<div class="single-footer-widget">
-						<h6 class="footer_title">About Us</h6>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.</p>
-					</div>
+			<div class="w3l_login">
+				<a href="#" data-toggle="modal" data-target="#myModal88"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+			</div>
+			<div class="w3l_logo">
+				<h1><a href="index.html">StarCCTV<span>Your stores. Your place.</span></a></h1>
+			</div>
+			<div class="search">
+				<input class="search_box" type="checkbox" id="search_box">
+				<label class="icon-search" for="search_box"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></label>
+				<div class="search_form">
+					<form action="#" method="post">
+						<input type="text" name="Search" placeholder="Search...">
+						<input type="submit" value="Send">
+					</form>
 				</div>
-				<div class="col-lg-4 col-md-6 col-sm-6">
-					<div class="single-footer-widget">
-						<h6 class="footer_title">Newsletter</h6>
-						<p>Stay updated with our latest trends</p>
-						<div id="mc_embed_signup">
-							<form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-							 method="get" class="subscribe_form relative">
-								<div class="input-group d-flex flex-row">
-									<input name="EMAIL" placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address '"
-									 required="" type="email">
-									<button class="btn sub-btn">
-										<span class="lnr lnr-arrow-right"></span>
-									</button>
-								</div>
-								<div class="mt-10 info"></div>
-							</form>
-						</div>
-					</div>
+			</div>
+			<div class="cart cart box_1"> 
+				<form action="#" method="post" class="last"> 
+					<input type="hidden" name="cmd" value="_cart" />
+					<input type="hidden" name="display" value="1" />
+					<button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
+				</form>   
+			</div>  
+		</div>
+	</div>
+    <!-- //header -->
+    @yield('content')
+
+
+
+
+    <!-- footer -->
+	<div class="footer">
+		<div class="container">
+			<div class="w3_footer_grids">
+				<div class="col-md-3 w3_footer_grid">
+					<h3>Contact</h3>
+					<p>Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
+					<ul class="address">
+						<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>1234k Avenue, 4th block, <span>New York City.</span></li>
+						<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">info@example.com</a></li>
+						<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+1234 567 567</li>
+					</ul>
 				</div>
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="single-footer-widget instafeed">
-						<h6 class="footer_title">Instagram Feed</h6>
-						<ul class="list instafeed d-flex flex-wrap">
-							<li>
-								<img src="{{ asset('ecommerce/img/instagram/Image-01.jpg') }}" alt="">
-							</li>
-							<li>
-								<img src="{{ asset('ecommerce/img/instagram/Image-02.jpg') }}" alt="">
-							</li>
-							<li>
-								<img src="{{ asset('ecommerce/img/instagram/Image-03.jpg') }}" alt="">
-							</li>
-							<li>
-								<img src="{{ asset('ecommerce/img/instagram/Image-04.jpg') }}" alt="">
-							</li>
-							<li>
-								<img src="{{ asset('ecommerce/img/instagram/Image-05.jpg') }}" alt="">
-							</li>
-							<li>
-								<img src="{{ asset('ecommerce/img/instagram/Image-06.jpg') }}" alt="">
-							</li>
-							<li>
-								<img src="{{ asset('ecommerce/img/instagram/Image-07.jpg') }}" alt="">
-							</li>
-							<li>
-								<img src="{{ asset('ecommerce/img/instagram/Image-08.jpg') }}" alt="">
-							</li>
+				<div class="col-md-3 w3_footer_grid">
+					<h3>Information</h3>
+					<ul class="info"> 
+						<li><a href="about.html">About Us</a></li>
+						<li><a href="mail.html">Contact Us</a></li>
+						<li><a href="codes.html">Short Codes</a></li>
+						<li><a href="faq.html">FAQ's</a></li>
+						<li><a href="products.html">Special Products</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 w3_footer_grid">
+					<h3>Category</h3>
+					<ul class="info"> 
+						<li><a href="products.html">Mobiles</a></li>
+						<li><a href="products1.html">Laptops</a></li>
+						<li><a href="products.html">Purifiers</a></li>
+						<li><a href="products1.html">Wearables</a></li>
+						<li><a href="products2.html">Kitchen</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 w3_footer_grid">
+					<h3>Profile</h3>
+					<ul class="info"> 
+						<li><a href="index.html">Home</a></li>
+						<li><a href="products.html">Today's Deals</a></li>
+					</ul>
+					<h4>Follow Us</h4>
+					<div class="agileits_social_button">
+						<ul>
+							<li><a href="#" class="facebook"> </a></li>
+							<li><a href="#" class="twitter"> </a></li>
+							<li><a href="#" class="google"> </a></li>
+							<li><a href="#" class="pinterest"> </a></li>
 						</ul>
 					</div>
 				</div>
-				<div class="col-lg-2 col-md-6 col-sm-6">
-					<div class="single-footer-widget f_social_wd">
-						<h6 class="footer_title">Follow Us</h6>
-						<p>Let us be social</p>
-						<div class="f_social">
-							<a href="#">
-								<i class="fa fa-facebook"></i>
-							</a>
-							<a href="#">
-								<i class="fa fa-twitter"></i>
-							</a>
-							<a href="#">
-								<i class="fa fa-dribbble"></i>
-							</a>
-							<a href="#">
-								<i class="fa fa-behance"></i>
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row footer-bottom d-flex justify-content-between align-items-center">
-				<p class="col-lg-12 footer-text text-center">
-                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> 
-                    All rights reserved | This template is made with 
-                    <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://daengweb.id" target="_blank">Daengweb</a>
-				</p>
+				<div class="clearfix"> </div>
 			</div>
 		</div>
-	</footer>
-	<!--================ End footer Area  =================-->
+		<div class="footer-copy">
+			<div class="footer-copy1">
+				<div class="footer-copy-pos">
+					<a href="#home1" class="scroll"><img src="images/arrow.png" alt=" " class="img-responsive" /></a>
+				</div>
+			</div>
+			<div class="container">
+				<p>&copy; 2017 Electronic Store. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+			</div>
+		</div>
+	</div>
+	<!-- //footer --> 
+	<!-- cart-js -->
+	<script src="{{ asset('ecommerce/thema-b/js/minicart.js')}}"></script>
+	<script>
+        w3ls.render();
 
-	<script src="{{ asset('ecommerce/js/jquery-3.2.1.min.js') }}"></script>
-	<script src="{{ asset('ecommerce/js/popper.js') }}"></script>
-	<script src="{{ asset('ecommerce/js/bootstrap.min.js') }}"></script>
-	<script src="{{ asset('ecommerce/js/stellar.js') }}"></script>
-	<script src="{{ asset('ecommerce/vendors/lightbox/simpleLightbox.min.js') }}"></script>
-	<script src="{{ asset('ecommerce/vendors/nice-select/js/jquery.nice-select.min.js') }}"></script>
-	<script src="{{ asset('ecommerce/vendors/isotope/imagesloaded.pkgd.min.js') }}"></script>
-	<script src="{{ asset('ecommerce/vendors/isotope/isotope-min.js') }}"></script>
-	<script src="{{ asset('ecommerce/vendors/owl-carousel/owl.carousel.min.js') }}"></script>
-	<script src="{{ asset('ecommerce/js/jquery.ajaxchimp.min.js') }}"></script>
-	<script src="{{ asset('ecommerce/vendors/counter-up/jquery.waypoints.min.js') }}"></script>
-	<script src="{{ asset('ecommerce/vendors/flipclock/timer.js') }}"></script>
-	<script src="{{ asset('ecommerce/vendors/counter-up/jquery.counterup.js') }}"></script>
-	<script src="{{ asset('ecommerce/js/mail-script.js') }}"></script>
-	<script src="{{ asset('ecommerce/js/theme.js') }}"></script>
-	@yield('js')
+        w3ls.cart.on('w3sb_checkout', function (evt) {
+        	var items, len, i;
+
+        	if (this.subtotal() > 0) {
+        		items = this.items();
+
+        		for (i = 0, len = items.length; i < len; i++) { 
+        		}
+        	}
+        });
+    </script>  
+	<!-- //cart-js -->   
 </body>
 </html>
