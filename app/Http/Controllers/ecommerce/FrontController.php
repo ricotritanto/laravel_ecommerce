@@ -33,8 +33,9 @@ class FrontController extends Controller
 
     public function show($slug)
     {
+        $products1 = Product::OrderBy('created_at','ASC')->paginate(12);
         $products = Product::with(['category'])->where('slug', $slug)->first();
-        return view('ecommerce.show', compact('products'));
+        return view('ecommerce.show', compact('products', 'products1'));
     }
 
     public function verifyCustomerRegistration($token)
