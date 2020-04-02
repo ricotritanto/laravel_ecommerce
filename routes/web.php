@@ -17,6 +17,8 @@ Route::get('/product', 'Ecommerce\FrontController@product')->name('front.product
 Route::get('/category/{slug}', 'Ecommerce\FrontController@categoryproduct')->name('front.category');
 Route::get('/product/{slug}', 'Ecommerce\FrontController@show')->name('front.show_product');
 Route::get('/contact', 'Ecommerce\FrontController@contact')->name('front.contact');
+Route::get('/about', 'Ecommerce\FrontController@about')->name('front.about');
+Route::get('/faq', 'Ecommerce\FrontController@faq')->name('front.faq');
 
 Route::post('cart', 'Ecommerce\Cartcontroller@addToCart')->name('front.cart');
 Route::get('/cart', 'Ecommerce\CartController@listCart')->name('front.list_cart');
