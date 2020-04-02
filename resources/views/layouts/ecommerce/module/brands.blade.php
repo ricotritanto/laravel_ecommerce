@@ -14,7 +14,7 @@
 						<img src="{{ asset('ecommerce/thema-b/images/tb3.jpg')}}" alt=" " class="img-responsive" />
 					</li>
 					<li>
-						<img src="{{ asset('ecommerce/thema-b/images/tb4.jpg')}}" alt=" " class="img-responsive" />
+						<img src="{{ asset('ecommerce/thema-b/images/hikvision.jpg')}}" alt=" " class="img-responsive" />
 					</li>
 					<li>
 						<img src="{{ asset('ecommerce/thema-b/images/tb5.jpg')}}" alt=" " class="img-responsive" />

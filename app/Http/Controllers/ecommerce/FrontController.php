@@ -20,15 +20,23 @@ class FrontController extends Controller
     public function product()
     {
         //paginate 12 agar posisi tampilannya presisi
-        $products = Product::OrderBy('created_at','DESC')->paginate(12);
+        $product = Product::with(['category'])->orderBy('created_at', 'DESC');
+        if(request()->q != '') {
+            $products = $product->where('name', 'like', '%'. request()->q.'%');
+        }
+        $products = $product->paginate(10);
+        $products1 = Product::OrderBy('created_at','ASC')->paginate(12);
+        
+        // $products = Product::OrderBy('created_at','DESC')->paginate(12);
         // $categories = Category::with(['child'])->withCount(['child'])->getParent()->orderBy('name','ASC')->get();
-        return view('ecommerce.product', compact('products'));
+        return view('ecommerce.product', compact('products', 'products1'));
     }
 
     public function categoryProduct($slug)
     {
+        $products1 = Product::OrderBy('created_at','ASC')->paginate(12);
         $products = Category::where('slug', $slug)->first()->product()->orderBy('created_at','DESC')->paginate(12);
-        return view('ecommerce.product', compact('products'));
+        return view('ecommerce.product', compact('products', 'products1'));
     }
 
     public function show($slug)
@@ -94,5 +102,15 @@ class FrontController extends Controller
     public function contact()
     {
         return view('ecommerce.contact');
+    }
+
+    public function about()
+    {
+        return view('ecommerce.about');
+    }
+
+    public function faq()
+    {
+        return view('ecommerce.faq');
     }
 }

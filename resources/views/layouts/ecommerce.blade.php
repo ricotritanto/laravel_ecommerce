@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Jasa Pemasang CCTV</title>
+<title>Jasa Pemasangan CCTV</title>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -140,8 +140,8 @@
 				<input class="search_box" type="checkbox" id="search_box">
 				<label class="icon-search" for="search_box"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></label>
 				<div class="search_form">
-					<form action="#" method="post">
-						<input type="text" name="Search" placeholder="Search...">
+					<form action="{{ route('front.product') }}" method="get">
+						<input type="text" name="q" placeholder="Search..." value="{{ request()->q }}">
 						<input type="submit" value="Send">
 					</form>
 				</div>
@@ -167,38 +167,32 @@
 			<div class="w3_footer_grids">
 				<div class="col-md-3 w3_footer_grid">
 					<h3>Contact</h3>
-					<p>Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
 					<ul class="address">
-						<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>1234k Avenue, 4th block, <span>New York City.</span></li>
-						<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">info@example.com</a></li>
-						<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+1234 567 567</li>
+						<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>Ngemplak Barat III No 17<span>Tembalang, Semarang.</span></li>
+						<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">info@starcctv.net</a></li>
+						<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>(+62) 81 220 888 990</li>
 					</ul>
 				</div>
 				<div class="col-md-3 w3_footer_grid">
 					<h3>Information</h3>
 					<ul class="info"> 
-						<li><a href="about.html">About Us</a></li>
-						<li><a href="mail.html">Contact Us</a></li>
-						<li><a href="codes.html">Short Codes</a></li>
-						<li><a href="faq.html">FAQ's</a></li>
-						<li><a href="products.html">Special Products</a></li>
+						<li><a href="{{ route('front.about') }}">About Us</a></li>
+						<li><a href="{{ route('front.contact') }}">Contact Us</a></li>
+						<li><a href="{{ route('front.faq') }}">FAQ's</a></li>
 					</ul>
 				</div>
 				<div class="col-md-3 w3_footer_grid">
 					<h3>Category</h3>
 					<ul class="info"> 
-						<li><a href="products.html">Mobiles</a></li>
-						<li><a href="products1.html">Laptops</a></li>
-						<li><a href="products.html">Purifiers</a></li>
-						<li><a href="products1.html">Wearables</a></li>
-						<li><a href="products2.html">Kitchen</a></li>
+						@foreach ($categories as $category)
+						<li><a href="products.html">{{$category->name}}</a></li>
+						@endforeach
 					</ul>
 				</div>
 				<div class="col-md-3 w3_footer_grid">
 					<h3>Profile</h3>
 					<ul class="info"> 
-						<li><a href="index.html">Home</a></li>
-						<li><a href="products.html">Today's Deals</a></li>
+						<li><a href="{{url('/')}}">Home</a></li>
 					</ul>
 					<h4>Follow Us</h4>
 					<div class="agileits_social_button">
@@ -216,7 +210,7 @@
 		<div class="footer-copy">
 			<div class="footer-copy1">
 				<div class="footer-copy-pos">
-					<a href="#home1" class="scroll"><img src="images/arrow.png" alt=" " class="img-responsive" /></a>
+					<a href="#home1" class="scroll"><img src="{{ asset('ecommerce/thema-b/images/arrow.png')}}" alt=" " class="img-responsive" /></a>
 				</div>
 			</div>
 			<div class="container">
